@@ -1,10 +1,10 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-6">
-        <h1>Novel Writing Planner</h1>
+      <div class="col-2">
+        <img alt="Vue logo" class="logo" src="../public/images/svg/logo.png" />
       </div>
-      <div class="col-6"></div>
+      <div class="col-10"></div>
     </div>
     <div class="row">      
       <div class="col-12">

@@ -1,0 +1,14 @@
+@import './variables.scss';
+
+html,
+body {
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-size: cover;
+    background-position: 10%;
+}
+.logo{
+    width: 5vh;
+}
