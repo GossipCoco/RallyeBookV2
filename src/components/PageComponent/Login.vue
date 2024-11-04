@@ -40,7 +40,6 @@
   </div>
 </template>
 <script>
-
 import JwtApi from "../../api/JwTApi";
 export default {
   name: "Login",
@@ -63,7 +62,6 @@ export default {
       // let login = this.form.login;
       // let pwd = this.form.password;
       console.log("test", this.form);
-
       this.$router.push({ path: "/home" });
       
     },

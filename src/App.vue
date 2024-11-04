@@ -1,10 +1,9 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-6">
-        <h1>Novel Writing Planner</h1>
-      </div>
-      <div class="col-6"></div>
+      <div class="col-12">
+        <img src="../public/images/Logo/logo-02png.png" alt="Novel Writing Planner Logo" />
+      </div>      
     </div>
     <div class="row">      
       <div class="col-12">
