@@ -39,11 +39,11 @@ export default {
         window.innerHeight
     );
     this.jwtApi = jwtAPI;    
-    console.log(this.$store.state.auth)
-    if (this.$store.state.auth.user === null) {
-      this.$router.push("/Accueil");
+    console.log(this.$store.state.auth.user)
+    if (this.$store.state.auth.user.usrID === null) {
+      this.$router.push("/home");
     } else {
-      this.getUser(this.$store.state.auth.user.userID);
+      this.getUser(this.$store.state.auth.user.usrID);
     }
     EventBus.on("logout", () => {
       this.logOut();
@@ -51,6 +51,7 @@ export default {
   },
   methods: {
     getUser(currentUser) {
+      console.log(currentUser)
       UserService.getUserById(currentUser)
         .then((response) => {
           this.userInfo = response.data.ob;

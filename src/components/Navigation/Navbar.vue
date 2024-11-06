@@ -5,25 +5,15 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
           <li class="nav-item">
             <router-link  class="nav-link" v-if="!isLoggedIn" to="/login">Se connecter</router-link>
           </li>
           <li class="nav-item">
-            <router-link  class="nav-link" v-if="isLoggedIn" to="/Dashboard">Se connecter</router-link>
+            <router-link  class="nav-link" v-if="isLoggedIn" to="/Dashboard">Dashboard</router-link>
           </li>
         </ul>
-        <form role="search">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        </form>
       </div>
     </div>
   </nav>
@@ -33,7 +23,7 @@ export default {
     name:'Navbar',
     computed: {
       isLoggedIn() {
-        return this.$store.state.auth.user !== null;
+        return this.$store.state.auth.user.usrID !== null;
       },
     },
 }
