@@ -12,8 +12,8 @@ body {
 .container-fluid{
     padding: 0;
 }
-.logo{
-    width: 25vh;
+.logo img{
+    width: 60%;
 }
 .background-black{
     background-color: rgba(var(--main-black), 1);
