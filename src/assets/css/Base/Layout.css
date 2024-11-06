@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import '../variables.scss';
 
 html,
 body {
@@ -9,8 +9,14 @@ body {
     background-size: cover;
     background-position: 10%;
 }
+.container-fluid{
+    padding: 0;
+}
 .logo{
     width: 25vh;
+}
+.background-black{
+    background-color: rgba(var(--main-black), 1);
 }
 .login-page{
     overflow: auto;

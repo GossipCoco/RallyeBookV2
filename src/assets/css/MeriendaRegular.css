@@ -1,7 +1,0 @@
-@font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: local('../fonts/Merienda/Merienda-Regular.ttf'),
-         url('../fonts/Merienda/Merienda-Regular.ttf') format('ttf'), /* Super Modern Browsers */
-  }

@@ -7,34 +7,27 @@
           src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
           class="profile-img-card"
         />
-        <Form @submit="handleLogin" :validation-schema="schema">
+        <form @submit.prevent="login">
           <div class="form-group">
             <label for="username">Username</label>
-            <input name="username" type="text" class="form-control" />
+            <input name="username" type="text" class="form-control" v-model="form.login"/>
             <ErrorMessage name="username" class="error-feedback" />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input name="password" type="password" class="form-control" />
+            <input name="password" type="password" class="form-control" v-model="form.password"/>
             <ErrorMessage name="password" class="error-feedback" />
           </div>
 
           <div class="form-group">
-            <button class="btn btn-primary btn-block" :disabled="loading" @click="login">
-              <span
-                v-show="loading"
-                class="spinner-border spinner-border-sm"
-              ></span>
-              <span>Login</span>
-            </button>
+            <button type="submit" class="btn btn-primary">Se connecter</button>
           </div>
-
           <div class="form-group">
             <div v-if="message" class="alert alert-danger" role="alert">
               {{ message }}
             </div>
           </div>
-        </Form>
+        </form>
       </div>
     </div>
   </div>
@@ -59,17 +52,38 @@ export default {
   methods: {
     login(e) {
       e.preventDefault();
-      // let login = this.form.login;
-      // let pwd = this.form.password;
-      console.log("test", this.form);
-      this.$router.push({ path: "/home" });
-      
+      let login = this.form.login
+      let pwd = this.form.password
+      this.$store
+        .dispatch("auth/login", {
+          Login: login,
+          Password: pwd,
+        })
+        .then(
+          () => {
+            this.$router.push({ path: "/dashboard" });
+          },
+          (error) => {
+            if (!error) {
+              this.falsePassword = "Login ou Mot de passe incorrect";
+              this.loading = false;
+              this.message =
+                (error.response && error.response.data) ||
+                error.message ||
+                error.toString();
+            }
+          }
+        )
+        .catch((errors) => {
+          console.log("Cannot log in", errors);
+          this.falsePassword = "Login ou Mot de passe incorrect";
+        });
     },
     onReset(event) {
       event.preventDefault();
       // Reset our form values
-      this.form.login = "";
-      this.form.password = "";
+      this.email = "";
+      this.password = "";
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {

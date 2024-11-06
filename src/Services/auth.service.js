@@ -8,8 +8,8 @@ class AuthService {
   login(user) {
     return api
       .post(API_URL + '/user/login', {
-        username: user.username,
-        password: user.password
+        username: user.Login,
+        password: user.Password
       })
       .then(response => {
         if (response.data.isSuccess) {
@@ -23,15 +23,12 @@ class AuthService {
         else {
             this.logout
         }
-        //console.log(response.data.ob)
         return response.data.ob
     })
   }
-
   logout() {
     localStorage.removeItem('user');
   }
-
   register(user) {
     return axios.post(API_URL + 'signup', {
       username: user.username,

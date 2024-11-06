@@ -1,11 +1,7 @@
 <template>
   <div class="container-fluid">
+    <Navbar />
     <div class="row">
-      <div class="col-12">
-        <img src="../public/images/Logo/logo-02png.png" alt="Novel Writing Planner Logo" />
-      </div>      
-    </div>
-    <div class="row">      
       <div class="col-12">
       <router-view></router-view>
       </div>
@@ -14,16 +10,52 @@
 </template>
 
 <script>
+import EventBus from "./HTTP/EventBus";
+import Navbar from './components/Navigation/Navbar.vue';
+import jwtAPI from "./api/JwTApi";
+import UserService from "./Services/UserService";
 export default {
   name: "App",
+  components:{Navbar},
+  data() {
+    return {
+      jwtApi: null,
+      user: null,
+      userInfo: null,
+      usrAPI: null,
+      usrRole: null,
+    };
+  },
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
+    },
+  },
+  created() {
+    console.log(
+      "Your screen resolution is: " +
+        window.innerWidth +
+        "x" +
+        window.innerHeight
+    );
+    this.jwtApi = jwtAPI;
+    if (this.$store.state.auth.user === null) {
+      this.$router.push("/Accueil");
+    } else {
+      this.getUser(this.$store.state.auth.user.userID);
+    }
+    EventBus.on("logout", () => {
+      this.logOut();
+    });
+  },
+  methods: {
+    getUser(currentUser) {
+      UserService.getUserById(currentUser)
+        .then((response) => {
+          this.userInfo = response.data.ob;
+        })
+        .catch((error) => console.error(error));
+    },
+  },
 };
 </script>
-
-<style>
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-</style>

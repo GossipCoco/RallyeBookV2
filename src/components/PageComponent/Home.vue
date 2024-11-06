@@ -1,9 +1,7 @@
 <template>
-    <header class="jumbotron">
-      <h3>Test</h3>
-    </header>
     <main class="row">
       <div class="col-12">
+        <router-link to="/login" type="button" class="btn btn-primary">Se connecter</router-link>
         <router-view></router-view>
       </div>
     </main>
@@ -17,7 +15,7 @@ export default {
   data() {
     return {
       content: "",
-      user: "coco",
+      user: "",
     };
   },
   mounted() {

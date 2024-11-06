@@ -1,10 +1,10 @@
 <template>
     <div>
-        <h1>Bienvenue sur votre Dashboard</h1>
+        <h1>Bienvenue sur votre dashboard</h1>
     </div>
 </template>
 <script>
 export default {
-    name: 'Dashboard'
+    name: 'DashboardLayout'
 }
 </script>
