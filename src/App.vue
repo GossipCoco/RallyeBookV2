@@ -38,7 +38,8 @@ export default {
         "x" +
         window.innerHeight
     );
-    this.jwtApi = jwtAPI;
+    this.jwtApi = jwtAPI;    
+    console.log(this.$store.state.auth)
     if (this.$store.state.auth.user === null) {
       this.$router.push("/Accueil");
     } else {

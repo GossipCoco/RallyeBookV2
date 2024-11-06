@@ -1,7 +1,6 @@
 <template>
     <main class="row">
-      <div class="col-12">
-        <router-link to="/login" type="button" class="btn btn-primary">Se connecter</router-link>
+      <div class="col-12">        
         <router-view></router-view>
       </div>
     </main>

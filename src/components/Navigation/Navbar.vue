@@ -14,6 +14,12 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li>
+          <li class="nav-item">
+            <router-link  class="nav-link" v-if="!isLoggedIn" to="/login">Se connecter</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link  class="nav-link" v-if="isLoggedIn" to="/Dashboard">Se connecter</router-link>
+          </li>
         </ul>
         <form role="search">
           <input class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -24,6 +30,11 @@
 </template>
 <script>
 export default {
-    name:'Navbar'
+    name:'Navbar',
+    computed: {
+      isLoggedIn() {
+        return this.$store.state.auth.user !== null;
+      },
+    },
 }
 </script>
