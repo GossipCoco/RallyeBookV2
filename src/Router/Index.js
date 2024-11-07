@@ -6,11 +6,12 @@ import DashboardLayout from "../components/Dashboard/DashboardLayout.vue";
 const routes = [
   {
     path: "/",
+    redirect: "/home",
     name: "home",
     component: Home,
   },
   {
-    path: "/home",
+    path: "/home",    
     component: Home,
   },
   {

@@ -1,11 +1,9 @@
 <template>
   <div class="container-fluid">
     <Navbar />
-    <div class="row">
-      <div class="col-12">
+    <main>
       <router-view></router-view>
-      </div>
-    </div>    
+    </main>    
   </div>
 </template>
 

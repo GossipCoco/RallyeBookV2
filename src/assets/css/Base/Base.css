@@ -1,0 +1,21 @@
+@import '../variables.scss';
+
+html,
+body {
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-size: cover;
+    background-position: 10%;
+}
+main {
+    height: 100vh;
+    margin: 0;
+}
+.container-fluid{
+    padding: 0;
+}
+.background-black{
+    background-color: rgba(var(--main-black), 1);
+}

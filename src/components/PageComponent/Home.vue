@@ -1,36 +1,12 @@
 <template>
-    <main class="row">
+    <main class="home row">
       <div class="col-12">        
         <router-view></router-view>
       </div>
     </main>
 </template>
-  
-  <script>
-import UserService from "../../Services/user.service";
-
+<script>
 export default {
-  name: "Home",
-  data() {
-    return {
-      content: "",
-      user: "",
-    };
-  },
-  mounted() {
-    UserService.getPublicContent().then(
-      (response) => {
-        this.content = response.data;
-      },
-      (error) => {
-        this.content =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-      }
-    );
-  },
-};
+  name:'Home'
+}
 </script>
