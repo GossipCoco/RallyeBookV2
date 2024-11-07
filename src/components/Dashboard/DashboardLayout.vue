@@ -1,14 +1,21 @@
 <template>
   <div class="row">
-    <div class="col-12 col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
-      <h1>Bienvenue sur votre dashboard {{ user.Username }}</h1>
+    <div class="col-1 col-xxl-1 col-xl-1 col-lg-1 col-md-1 col-sm-1">
+      <SideBar />
+    </div>
+    <div class="col-11 col-xxl-11 col-xl-11 col-lg-11 col-md-11 col-sm-11">
+      <div class="card">
+        <h1>Bienvenue sur votre dashboard {{ user.Username }}</h1>
+      </div>
     </div>
   </div>
 </template>
 <script>
 import UserService from "../../Services/UserService";
+import SideBar from "../Navigation/SideBar.vue";
 export default {
   name: "DashboardLayout",
+  components:{SideBar},
   data() {
     return {
       usrId: this.$store.state.auth.user.usrID,

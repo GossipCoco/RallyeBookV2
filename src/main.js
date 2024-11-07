@@ -11,7 +11,9 @@ import { faCat, faEnvelope, faGamepad, faHome, faHouseUser, faUser, faUserAlt, f
 import { FontAwesomeIcon } from '@fortawesome/fontawesome-free'
 
 import 'bootstrap/dist/css/bootstrap.css'
+import './assets/css/Base/Utilities.css'
 import './assets/css/Base/Base.css'
+import './assets/css/Base/Menu.css'
 import './assets/css/Base/Layout.css'
 import './assets/css/Base/Card.css'
 import './assets/css/Base/Responsive.css'

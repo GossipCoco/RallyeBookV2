@@ -3,12 +3,12 @@
     <div class="container-fluid">
       <router-link  class="nav-link" v-if="!isLoggedIn" to="/">
         <div class="logo">
-          <img src="../../../public//images/Logo/NWP-logo.png" />
+          <img src="../../../public//images/Logo/NVP_logov3.png" />
         </div>
       </router-link>
       <router-link  class="nav-link" v-if="isLoggedIn" to="/Dashboard">
         <div class="logo">
-          <img src="../../../public//images/Logo/NWP-logo.png" />
+          <img src="../../../public//images/Logo/NVP_logov3.png" />
         </div>
       </router-link>      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
