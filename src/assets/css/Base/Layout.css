@@ -3,7 +3,7 @@
 @import '../variables.scss';
 
 .logo img{
-    width: 60%;
+    width: 100%;
 }
 .login-page{
     overflow: auto;

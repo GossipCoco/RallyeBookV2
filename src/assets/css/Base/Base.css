@@ -26,3 +26,6 @@ main {
     height: 83.5vh;
     background-color: rgba(var(--seconde-blue-background), 1);
 }
+.logo{
+    width: 300px;
+}
