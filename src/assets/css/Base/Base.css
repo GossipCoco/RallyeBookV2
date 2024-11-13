@@ -9,6 +9,7 @@ body {
     scroll-behavior: smooth;
     background-size: cover;
     background-position: 10%;
+    background-color: rgba(var(--main-blue-background), 1);
 }
 main {
     height: 100vh;
@@ -19,4 +20,9 @@ main {
 }
 .background-black{
     background-color: rgba(var(--main-black), 1);
+}
+.navbar-container{
+    width: 8.5rem;
+    height: 83.5vh;
+    background-color: rgba(var(--seconde-blue-background), 1);
 }

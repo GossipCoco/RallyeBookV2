@@ -1,20 +1,15 @@
 <template>
-  <div class="container-fluid">
-    <Navbar />
-    <main>
-      <router-view></router-view>
-    </main>    
-  </div>
+<router-view></router-view>
 </template>
 
 <script>
 import EventBus from "./HTTP/EventBus";
-import Navbar from './components/Navigation/Navbar.vue';
+// import Navbar from './components/Navigation/Navbar.vue';
 import jwtAPI from "./api/JwTApi";
 import UserService from "./Services/UserService";
 export default {
   name: "App",
-  components:{Navbar},
+  // components:{Navbar},
   data() {
     return {
       jwtApi: null,
@@ -38,8 +33,8 @@ export default {
     );
     this.jwtApi = jwtAPI;    
     console.log(this.$store.state.auth.user)
-    if (this.$store.state.auth.user.usrID === null) {
-      this.$router.push("/home");
+    if (this.$store.state.auth.user === null) {
+      this.$router.push("/login");
     } else {
       this.getUser(this.$store.state.auth.user.usrID);
     }
@@ -55,6 +50,10 @@ export default {
           this.userInfo = response.data.ob;
         })
         .catch((error) => console.error(error));
+    },
+    logOut() {
+      this.$store.dispatch("auth/logout");
+      this.$router.push("/login");
     },
   },
 };
