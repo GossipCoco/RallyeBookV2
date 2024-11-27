@@ -5,9 +5,7 @@
         <SideBar />
       </div>
       <div class="col-11 col-xxl-11 col-xl-11 col-lg-11 col-md-11 col-sm-11">
-        <div class="card">
-          <h1>Bienvenue sur votre dashboard {{ user.Username }}</h1>
-        </div>
+        <WelcomeUserCard v-bind:user="user" />
       </div>
     </div>
   </main>
@@ -15,9 +13,10 @@
 <script>
 import UserService from "../../Services/UserService";
 import SideBar from "../Navigation/SideBar.vue";
+import WelcomeUserCard from '../Dashboard/components/WelcomeUserCard.vue'
 export default {
   name: "DashboardLayout",
-  components: { SideBar },
+  components: { SideBar, WelcomeUserCard },
   data() {
     return {
       usrId: this.$store.state.auth.user.usrID,

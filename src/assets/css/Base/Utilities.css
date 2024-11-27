@@ -24,6 +24,6 @@
     justify-content: center;
     text-align: center;
 }
-.bg-dark{
-    background-color: rgba(var(--seconde-blue-background), 1);
+.background-blue{
+    background-color: rgba(var(--seconde-blue-background), 1)!important;
 }

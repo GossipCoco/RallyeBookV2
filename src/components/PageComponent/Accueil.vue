@@ -1,6 +1,7 @@
 <template>
     <div class="container-fluid">
-      <Navbar />
+      <HeaderAccueil />
+      
       <main class="container-fluid height-100 display-flex-column main-global-container">
         <router-view></router-view>
       </main>
@@ -10,10 +11,11 @@
   import EventBus from "../../HTTP/EventBus";
   import UserService from "../../Services/UserService";
   import jwtAPI from "../../api/JwTApi";
-  import Navbar from "../Navigation/Navbar.vue";
+  // import Navbar from "../Navigation/Navbar.vue";
+  import HeaderAccueil from "./Accueil/HeaderAccueil.vue";
   export default {
     name: "Accueil",
-    components: { Navbar },data() {
+    components: { HeaderAccueil },data() {
       return {
         publicPath: process.env.BASE_URL,
         usrJob: null,

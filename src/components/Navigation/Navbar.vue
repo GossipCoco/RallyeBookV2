@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
+<nav class="navbar navbar-expand navbar-dark background-blue" aria-label="Second navbar example">
     <div class="container-fluid">
       <router-link  class="nav-link" v-if="!isLoggedIn" to="/">
         <div class="logo">

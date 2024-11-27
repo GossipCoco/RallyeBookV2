@@ -1,7 +1,6 @@
 <template>
 <router-view></router-view>
 </template>
-
 <script>
 import EventBus from "./HTTP/EventBus";
 // import Navbar from './components/Navigation/Navbar.vue';
