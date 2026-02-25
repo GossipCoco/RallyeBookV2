@@ -1,41 +1,62 @@
 <template>
-  <div class="login-page">
-    <div class="col-md-12">
-      <div class="card card-container">
-        <img
-          id="profile-img"
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          class="profile-img-card"
-        />
-        <form @submit.prevent="login">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input name="username" type="text" class="form-control" v-model="form.login"/>
-            <ErrorMessage name="username" class="error-feedback" />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input name="password" type="password" class="form-control" v-model="form.password"/>
-            <ErrorMessage name="password" class="error-feedback" />
-          </div>
+  <div class="container-fluid">
+    <HeaderAccueil />
+    <main
+      class="height-100 display-flex-column main-global-container"
+    >
+      <div class="login-page">
+        <div class="col-md-12">
+          <div class="card card-container">
+            <img
+              id="profile-img"
+              src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+              class="profile-img-card"
+            />
+            <form @submit.prevent="login">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                  name="username"
+                  type="text"
+                  class="form-control"
+                  v-model="form.login"
+                />
+                <ErrorMessage name="username" class="error-feedback" />
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  v-model="form.password"
+                />
+                <ErrorMessage name="password" class="error-feedback" />
+              </div>
 
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">Se connecter</button>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                  Se connecter
+                </button>
+              </div>
+              <div class="form-group">
+                <div v-if="message" class="alert alert-danger" role="alert">
+                  {{ message }}
+                </div>
+              </div>
+            </form>
           </div>
-          <div class="form-group">
-            <div v-if="message" class="alert alert-danger" role="alert">
-              {{ message }}
-            </div>
-          </div>
-        </form>
+        </div>
       </div>
-    </div>
+    </main>
   </div>
 </template>
 <script>
 import JwtApi from "../../api/JwTApi";
+import HeaderAccueil from "./Accueil/HeaderAccueil.vue";
 export default {
   name: "Login",
+  components: { HeaderAccueil },
   data() {
     return {
       form: {
@@ -52,8 +73,8 @@ export default {
   methods: {
     login(e) {
       e.preventDefault();
-      let login = this.form.login
-      let pwd = this.form.password
+      let login = this.form.login;
+      let pwd = this.form.password;
       this.$store
         .dispatch("auth/login", {
           Login: login,
